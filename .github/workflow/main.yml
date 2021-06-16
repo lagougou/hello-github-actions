@@ -1,0 +1,18 @@
+name: Update cms/master
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  update-cms-master:
+    name: Merge master into release after a PR is merged
+    runs-on: ubuntu-latest
+    steps:
+      - name: merge
+        uses: mtanzi/action-automerge@v1
+        id: merge
+        with:
+          source: 'master'
+          target: 'release'
